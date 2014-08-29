@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+</head>
+<body>
+<script>
+    $(function(){
+        $(".ctrl-button").mousedown(function(){
+            var action = $(this).attr("data-action");
+            $.get("/ctrl?action=" + action, function() {});
+        });
+        $(".ctrl-button").mouseup(function(){
+            $.get("/ctrl?action=stop", function() {});
+        });
+    });
+</script>
+<button class="ctrl-button" data-action="up">UP</button>
+<button class="ctrl-button" data-action="down">DOWN</button>
+<button class="ctrl-button" data-action="left">LEFT</button>
+<button class="ctrl-button" data-action="right">RIGHT</button>
+<button class="ctrl-button" data-action="fire">FIRE</button>
+</body>
+</html>
