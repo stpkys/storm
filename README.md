@@ -1,18 +1,16 @@
 Storm Launcher
 ==============
 
-Another Web interface for USB Missle Launcher
-Based on https://github.com/nmilford/stormLauncher
-Compatible with Dream Cheeky Thunder USB Missile Launcher
-Uses Tornado for running web-server
+Another Web interface for USB Missle Launcher. Compatible with Dream Cheeky Thunder USB Missile Launcher. Uses Tornado for running web-server.
 
+Based on https://github.com/nmilford/stormLauncher. 
 
 Installation
 ------------
 Clone this repo
-Install and activate virtual-env
+Install and activate virtualenv
 ```
-virtual-env venv
+virtualenv venv
 . ./venv/bin/activate
 ```
 And install requirements
