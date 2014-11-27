@@ -1,15 +1,5 @@
 #!/usr/bin/python
-import time
-from tornado import template
-import tornado.ioloop
-import tornado.web
 import usb.core
-
-
-class MainHandler(tornado.web.RequestHandler):
-    def get(self):
-        loader = template.Loader("./")
-        self.write(loader.load("template.html").generate())
 
 
 class Launcher():
@@ -61,22 +51,3 @@ class Launcher():
         if action == "fire":
             self.fire()
             return
-
-
-class CtrlHandler(tornado.web.RequestHandler):
-    def get(self):
-        action = self.get_argument("action", default="stop")
-        device.act(action)
-        self.write("OK")
-
-
-device = Launcher()
-application = tornado.web.Application([
-    (r"/", MainHandler),
-    (r"/ctrl", CtrlHandler),
-])
-
-if __name__ == "__main__":
-    device.open()
-    application.listen(8888)
-    tornado.ioloop.IOLoop.instance().start()
