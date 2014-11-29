@@ -11,6 +11,7 @@
             $.get("/ctrl?action=" + action, function() {});
         });
         $(".ctrl-button").mouseup(function(){
+            if($(this).attr("data-action") == "fire") return;
             $.get("/ctrl?action=stop", function() {});
         });
     });
